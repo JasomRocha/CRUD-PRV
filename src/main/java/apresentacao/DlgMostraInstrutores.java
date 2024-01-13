@@ -9,8 +9,10 @@ import persistencia.ControlaInstrutor;
  * @author jasom
  */
 public class DlgMostraInstrutores extends javax.swing.JDialog {
-
-    ControlaInstrutor ci;
+    
+    ControlaInstrutor ci = new ControlaInstrutor();
+    
+    
     public DlgMostraInstrutores(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -21,8 +23,9 @@ public class DlgMostraInstrutores extends javax.swing.JDialog {
         initComponents();
         exibeInformacoes();
     }
+   
     
-    private void exibeInformacoes(){
+    public void exibeInformacoes(){
          ArrayList <Instrutor> instrutores = ci.retornarTodos();
          
          //limpar JTable
@@ -40,6 +43,7 @@ public class DlgMostraInstrutores extends javax.swing.JDialog {
               tblInstrutor.setValueAt(instrutores.get(i).getTreinamento(), i, 2);
               tblInstrutor.setValueAt(instrutores.get(i).getEndereco(), i, 3);
               tblInstrutor.setValueAt(instrutores.get(i).getNumero(), i, 4);
+
          }
          
      }
@@ -58,6 +62,7 @@ public class DlgMostraInstrutores extends javax.swing.JDialog {
         btnSair = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Tabela de instrutores");
 
         tblInstrutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

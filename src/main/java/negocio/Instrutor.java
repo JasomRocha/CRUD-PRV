@@ -61,6 +61,11 @@ public class Instrutor {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+
+    @Override
+    public String toString() {
+        return "Instrutor{" + "nome=" + nome + ", sobrenome=" + sobrenome + ", Treinamento=" + Treinamento + ", endereco=" + endereco + ", numero=" + numero + '}';
+    }
     
     
     

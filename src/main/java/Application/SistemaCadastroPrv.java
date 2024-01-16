@@ -73,8 +73,7 @@ public class SistemaCadastroPrv {
         catch(IOException e){
             e.printStackTrace();
         }
-          
-          
+
         InitialMenu initialMenu = new InitialMenu(ci, cc);
         initialMenu.setVisible(true);
         initialMenu.setLocationRelativeTo(null);

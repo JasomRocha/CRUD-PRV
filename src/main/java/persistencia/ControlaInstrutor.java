@@ -6,6 +6,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import negocio.Instrutor;
 
 /**
@@ -40,8 +41,12 @@ public class ControlaInstrutor {
         return false;
         }
     }
-
-
+    
+    public ArrayList <Instrutor> ordenarTabela(ArrayList <Instrutor> instrutor){
+        Collections.sort(instrutor);
+        return instrutor;
+    }  
+    
     public ArrayList <Instrutor> retornarTodos(){
         return instrutor;
     }  

@@ -8,14 +8,14 @@ package negocio;
  *
  * @author jasom
  */
-public class Cliente {
+public class Cliente implements Comparable <Cliente>{
     public String razaoSocial;
     public String nomeFantasia;
     public String cnpj;
     public String atividade;
     public String descricao;
 
-    public Cliente() {
+    public Cliente()  {
     }
 
     
@@ -66,6 +66,11 @@ public class Cliente {
 
     public void setDescrição(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public int compareTo(Cliente other) {
+        return nomeFantasia.compareTo(other.getNomeFantasia());
     }
     
     

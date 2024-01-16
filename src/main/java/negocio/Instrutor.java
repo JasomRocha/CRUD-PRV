@@ -4,7 +4,7 @@ package negocio;
  *
  * @author jasom
  */
-public class Instrutor {
+public class Instrutor implements Comparable <Instrutor> {
     private String nome;
     private String sobrenome;
     private String Treinamento;
@@ -65,6 +65,12 @@ public class Instrutor {
     @Override
     public String toString() {
         return "Instrutor{" + "nome=" + nome + ", sobrenome=" + sobrenome + ", Treinamento=" + Treinamento + ", endereco=" + endereco + ", numero=" + numero + '}';
+    }
+
+  
+    @Override
+    public int compareTo(Instrutor other) {
+        return nome.compareTo(other.getNome());
     }
      
 }

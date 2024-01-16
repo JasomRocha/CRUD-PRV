@@ -5,6 +5,7 @@ apresentacao\CadastroClientes$10.class
 apresentacao\InitialMenu.class
 apresentacao\InitialMenu$3.class
 apresentacao\DlgMostraClientes$3.class
+apresentacao\DlgMostraClientes$5$1.class
 apresentacao\InitialMenu$2.class
 apresentacao\DlgMostraClientes$4.class
 apresentacao\CadastroClientes$7.class
@@ -17,8 +18,8 @@ apresentacao\CadastroInstrutores$1.class
 apresentacao\CadastroClientes$4.class
 apresentacao\DlgMostraClientes$1.class
 apresentacao\DlgMostraInstrutores$3.class
+apresentacao\DlgMostraInstrutores$4$1.class
 apresentacao\CadastroInstrutores$5.class
-apresentacao\DlgMostraInstrutores$3$1.class
 apresentacao\DlgMostraClientes.class
 apresentacao\DlgMostraClientes$2.class
 apresentacao\CadastroInstrutores$3.class
@@ -28,11 +29,12 @@ apresentacao\CadastroClientes.class
 apresentacao\CadastroClientes$6.class
 apresentacao\CadastroClientes$11.class
 apresentacao\CadastroClientes$2.class
-apresentacao\DlgMostraClientes$4$1.class
 apresentacao\CadastroInstrutores$2.class
 apresentacao\DlgMostraInstrutores$2.class
+apresentacao\DlgMostraInstrutores$4.class
 apresentacao\CadastroClientes$5.class
 negocio\Cliente.class
+apresentacao\DlgMostraClientes$5.class
 apresentacao\CadastroClientes$8.class
 apresentacao\InitialMenu$1.class
 apresentacao\CadastroInstrutores.class

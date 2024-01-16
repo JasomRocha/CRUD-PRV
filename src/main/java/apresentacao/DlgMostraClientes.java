@@ -52,7 +52,29 @@ public class DlgMostraClientes extends javax.swing.JDialog {
          
      }
      
- 
+     public void exibeInformacoesOrdenado(){
+         ArrayList <Cliente> clientes = cc.retornarTodos();
+         
+         clientes = cc.ordenarTabela(clientes);
+         //limpar JTable
+         for(int i=0; i < clientes.size(); i++){
+             tblClientes.setValueAt(" ", i, 0);
+             tblClientes.setValueAt(" ", i, 1);
+             tblClientes.setValueAt(" ", i, 2);
+             tblClientes.setValueAt(" ", i, 3);
+             tblClientes.setValueAt(" ", i, 4);
+         }
+         
+         for(int i = 0; i<clientes.size() && clientes.get(i) != null; i++){
+              tblClientes.setValueAt(clientes.get(i).getRazaoSocial(), i, 0);
+              tblClientes.setValueAt(clientes.get(i).getNomeFantasia(), i, 1);
+              tblClientes.setValueAt(clientes.get(i).getCnpj(), i, 2);
+              tblClientes.setValueAt(clientes.get(i).getAtividade(), i, 3);
+              tblClientes.setValueAt(clientes.get(i).getDescricao(), i, 4);
+
+         }
+         
+     }
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -61,6 +83,7 @@ public class DlgMostraClientes extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblClientes = new javax.swing.JTable();
         btnSair = new javax.swing.JButton();
+        btnOrdenar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -123,7 +146,7 @@ public class DlgMostraClientes extends javax.swing.JDialog {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -146,6 +169,13 @@ public class DlgMostraClientes extends javax.swing.JDialog {
             }
         });
 
+        btnOrdenar.setText("Ordenar");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -156,6 +186,8 @@ public class DlgMostraClientes extends javax.swing.JDialog {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 944, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnOrdenar)
+                        .addGap(28, 28, 28)
                         .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -165,7 +197,9 @@ public class DlgMostraClientes extends javax.swing.JDialog {
                 .addGap(23, 23, 23)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(btnSair)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSair)
+                    .addComponent(btnOrdenar))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -179,6 +213,10 @@ public class DlgMostraClientes extends javax.swing.JDialog {
     private void tblClientesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblClientesMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_tblClientesMouseEntered
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        exibeInformacoesOrdenado();
+    }//GEN-LAST:event_btnOrdenarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,6 +262,7 @@ public class DlgMostraClientes extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnSair;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblClientes;

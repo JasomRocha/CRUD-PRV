@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import negocio.Cliente;
 
 
@@ -21,6 +22,7 @@ public class ControlaCliente {
         return true;
     }
     
+   
     public boolean salvarEmArquivo(String pathC) {
     
     try (BufferedWriter bw = new BufferedWriter(new FileWriter(pathC, false))) {
@@ -39,8 +41,13 @@ public class ControlaCliente {
         }
     }
 
-
     public ArrayList <Cliente> retornarTodos(){
         return clientes;
     }  
+    
+    public ArrayList <Cliente> ordenarTabela(ArrayList <Cliente> clientes){
+        Collections.sort(clientes);
+        return clientes;
+    }
+    
 }

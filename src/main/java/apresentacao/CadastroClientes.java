@@ -117,6 +117,7 @@ public class CadastroClientes extends javax.swing.JFrame {
         jLabel5.setText("Endereço:");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Clientes - Cadastro/Consulta ");
         setBackground(new java.awt.Color(0, 255, 255));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

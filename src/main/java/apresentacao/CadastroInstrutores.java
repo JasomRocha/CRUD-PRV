@@ -47,7 +47,7 @@ public class CadastroInstrutores extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sistema de Cadastro de instrutores - PRV");
+        setTitle("Instrutores - Cadasto/Consulta");
 
         jLabel1.setText("Nome:");
 

@@ -11,16 +11,16 @@ import persistencia.ControlaInstrutor;
  *
  * @author jasom
  */
-public class Principal extends javax.swing.JFrame {
+public class CadastroInstrutores extends javax.swing.JFrame {
 
     private ControlaInstrutor ci = new ControlaInstrutor();
 
    
-    public Principal() {
+    public CadastroInstrutores() {
         initComponents();
     }
     
-    public Principal(ControlaInstrutor ci) {
+    public CadastroInstrutores(ControlaInstrutor ci) {
         this.ci = ci;
         initComponents();
     }
@@ -45,7 +45,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistema de Cadastro de instrutores - PRV");
@@ -88,18 +87,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel5.setText("Endereço:");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setText("Sistema de Cadastro de Instrutores");
+        jLabel6.setText("Cadastre um novo Instrutor");
 
         btnSave.setText("Salvar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
-            }
-        });
-
-        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jTabbedPane1MouseEntered(evt);
             }
         });
 
@@ -131,22 +124,23 @@ public class Principal extends javax.swing.JFrame {
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(btnSalvar)
                                         .addComponent(tfdTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnVerTodos))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap(72, Short.MAX_VALUE))))
-            .addComponent(jTabbedPane1)
+                                        .addComponent(btnVerTodos)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnSair, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addContainerGap(37, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(tfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,94 +162,91 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(tfdTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(btnSalvar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnVerTodos)
-                .addGap(50, 50, 50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSair)
                     .addComponent(btnSave))
-                .addGap(28, 28, 28))
+                .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTodosActionPerformed
-        DlgMostraInstrutores dlg = new DlgMostraInstrutores(null, true, ci);
-        dlg.setVisible(true);
-    }//GEN-LAST:event_btnVerTodosActionPerformed
+    private void tfdTreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdTreinamentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfdTreinamentoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        Instrutor instrutor = new Instrutor(); //instaciamos o obej instrutor para populalo com as informacoes dos campos de texto
+
+        instrutor.setNome(tfdNome.getText());
+        instrutor.setSobrenome(tfdSobrenome.getText());
+        instrutor.setTreinamento(tfdTreinamento.getText());
+        instrutor.setEndereco(tfdEndereco.getText());
+        instrutor.setNumero(tfdTelefone.getText());
+
+        //tentar salvar
+        if(ci.salvar(instrutor)){
+            JOptionPane.showMessageDialog(null, "Instrutor adicionado à tabela.\nAntes de sair clique em salvar.");
+            tfdNome.setText("");
+            tfdSobrenome.setText("");
+            tfdTreinamento.setText("");
+            tfdEndereco.setText("");
+            tfdTelefone.setText("");
+            tfdNome.requestFocus();
+        }
+
+        else{
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar Instrutor!");
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
         int resposta =   JOptionPane.showConfirmDialog(null, "Deseja realmente sair?", "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         switch (resposta) {
             case JOptionPane.YES_OPTION:
-                System.exit(0);
+            this.dispose();
             case JOptionPane.NO_OPTION:
-                
-                break;
+
+            break;
             case JOptionPane.CLOSED_OPTION:
-             
-                break;
+
+            break;
             default:
-                break;
+            break;
         }
     }//GEN-LAST:event_btnSairActionPerformed
 
-    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-      Instrutor instrutor = new Instrutor(); //instaciamos o obej instrutor para populalo com as informacoes dos campos de texto
-      
-      instrutor.setNome(tfdNome.getText());
-      instrutor.setSobrenome(tfdSobrenome.getText());
-      instrutor.setTreinamento(tfdTreinamento.getText());
-      instrutor.setEndereco(tfdEndereco.getText());
-      instrutor.setNumero(tfdTelefone.getText());
-      
-      //tentar salvar
-      if(ci.salvar(instrutor)){
-          JOptionPane.showMessageDialog(null, "Instrutor adicionado à tabela.\nAntes de sair clique em salvar.");
-          tfdNome.setText("");
-          tfdSobrenome.setText("");
-          tfdTreinamento.setText("");
-          tfdEndereco.setText("");
-          tfdTelefone.setText("");
-          tfdNome.requestFocus();
-        }
-     
-      else{
-         JOptionPane.showMessageDialog(null, "Erro ao cadastrar Instrutor!"); 
-      }
-    }//GEN-LAST:event_btnSalvarActionPerformed
-
-    private void tfdTreinamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfdTreinamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfdTreinamentoActionPerformed
+    private void btnVerTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTodosActionPerformed
+        DlgMostraInstrutores dlg = new DlgMostraInstrutores(null, true, ci);
+        dlg.setVisible(true);
+        dlg.setLocationRelativeTo(null);
+    }//GEN-LAST:event_btnVerTodosActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         String path = "c:\\temp\\instrutores.csv";
         if(ci.salvarEmArquivo(path)){
-          JOptionPane.showMessageDialog(null, "Instrutores cadastrados com sucesso!\nArquivo atualizado.");
-          tfdNome.setText("");
-          tfdSobrenome.setText("");
-          tfdTreinamento.setText("");
-          tfdEndereco.setText("");
-          tfdTelefone.setText("");
-          tfdNome.requestFocus(); 
+            JOptionPane.showMessageDialog(null, "Instrutores cadastrados com sucesso!\nArquivo atualizado.");
+            tfdNome.setText("");
+            tfdSobrenome.setText("");
+            tfdTreinamento.setText("");
+            tfdEndereco.setText("");
+            tfdTelefone.setText("");
+            tfdNome.requestFocus();
         }
         else{
-            JOptionPane.showMessageDialog(null, "Erro ao atualizar o Arquivo!"); 
+            JOptionPane.showMessageDialog(null, "Erro ao atualizar o Arquivo!");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-
-    private void jTabbedPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTabbedPane1MouseEntered
 
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new CadastroInstrutores().setVisible(true);
             }
         });
         
@@ -273,7 +264,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField tfdEndereco;
     private javax.swing.JTextField tfdNome;
     private javax.swing.JTextField tfdSobrenome;

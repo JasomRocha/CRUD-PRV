@@ -66,7 +66,5 @@ public class Instrutor {
     public String toString() {
         return "Instrutor{" + "nome=" + nome + ", sobrenome=" + sobrenome + ", Treinamento=" + Treinamento + ", endereco=" + endereco + ", numero=" + numero + '}';
     }
-    
-    
-    
+     
 }

@@ -2,11 +2,14 @@ package Application;
 
 
 
-import apresentacao.Principal;
+import apresentacao.InitialMenu;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import negocio.Cliente;
 import negocio.Instrutor;
+import persistencia.ControlaCliente;
 import persistencia.ControlaInstrutor;
 
 
@@ -19,7 +22,9 @@ public class SistemaCadastroPrv {
     public static void main(String[] args) {
         
         ControlaInstrutor ci = new ControlaInstrutor();
+        ControlaCliente cc = new ControlaCliente();
         String path = "c:\\temp\\instrutores.csv";
+        String pathC = "c:\\temp\\clientes.csv";
         
         try(BufferedReader br = new BufferedReader(new FileReader(path))){
             String line = br.readLine();
@@ -44,9 +49,35 @@ public class SistemaCadastroPrv {
         catch(IOException e){
             e.printStackTrace();
         }
-       
-        Principal principal = new Principal(ci);    
-        principal.setVisible(true);
+        
+          try(BufferedReader br = new BufferedReader(new FileReader(pathC))){
+            String line = br.readLine();
+            
+            
+            while(line != null){
+                String[] fields = line.split(",");
+                String razaoSocial = fields[0];
+                String nomeFantasia = fields[1];
+                String cnpj = fields[2];
+                String atividade = fields[3];
+                String descricao = fields[4];
+                
+                Cliente cliente = new Cliente(razaoSocial, nomeFantasia, cnpj, atividade, descricao);
+                
+                cc.salvar(cliente);
+                
+                line = br.readLine();
+            }
+
+        } 
+        catch(IOException e){
+            e.printStackTrace();
+        }
+          
+          
+        InitialMenu initialMenu = new InitialMenu(ci, cc);
+        initialMenu.setVisible(true);
+        initialMenu.setLocationRelativeTo(null);
     }
       
 }
